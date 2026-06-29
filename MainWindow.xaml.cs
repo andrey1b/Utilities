@@ -18,6 +18,7 @@ public partial class MainWindow : Window
     private Forms.NotifyIcon? _tray;
     private bool _reallyClose;
     private bool _trayHintShown;
+    private readonly bool _snapshotMode; // запуск ярлыком «Снимок» (--snapshot)
 
     private static readonly Brush OnBrush  = new SolidColorBrush(Color.FromRgb(0x2C, 0x5F, 0x2D)); // зелёный
     private static readonly Brush OffBrush = new SolidColorBrush(Color.FromRgb(0x8A, 0x8A, 0x8A)); // серый
@@ -31,11 +32,16 @@ public partial class MainWindow : Window
         Loaded += OnLoaded;
         Closing += OnClosing;
 
+        var args = Environment.GetCommandLineArgs();
+
         // Запуск с ключом --tray (автозапуск): сразу свернуть в трей
-        if (Environment.GetCommandLineArgs().Any(a => a.Equals("--tray", StringComparison.OrdinalIgnoreCase)))
+        if (args.Any(a => a.Equals("--tray", StringComparison.OrdinalIgnoreCase)))
         {
             Loaded += (_, _) => Hide();
         }
+
+        // Запуск ярлыком «Снимок» (--snapshot): сразу захват экрана → текст, затем выход
+        _snapshotMode = args.Any(a => a.Equals("--snapshot", StringComparison.OrdinalIgnoreCase));
     }
 
     private void OnSourceInitialized(object? sender, EventArgs e)
@@ -50,6 +56,24 @@ public partial class MainWindow : Window
     {
         RefreshVersionText();
         SetupTray();
+        if (_snapshotMode) RunSnapshotMode();
+    }
+
+    // Режим ярлыка «Снимок»: окно не показываем, делаем захват → текст, затем выходим
+    private async void RunSnapshotMode()
+    {
+        Hide();
+        if (!OcrService.IsAvailable)
+        {
+            System.Windows.MessageBox.Show(App.Res("OcrUnavailable"), App.Res("AppTitle"),
+                MessageBoxButton.OK, MessageBoxImage.Information);
+            ExitApp();
+            return;
+        }
+        await Task.Delay(200);                  // дать окну исчезнуть из снимка
+        await CaptureRecognizeNotifyAsync();
+        await Task.Delay(2600);                  // показать уведомление в трее
+        ExitApp();
     }
 
     private void RefreshVersionText()
@@ -93,7 +117,13 @@ public partial class MainWindow : Window
         bool wasVisible = IsVisible;
         Hide();                       // убрать своё окно из снимка
         await Task.Delay(180);
+        await CaptureRecognizeNotifyAsync();
+        if (wasVisible) ShowFromTray();
+    }
 
+    // Общая логика: захват области экрана → OCR → буфер обмена + уведомление
+    private async Task CaptureRecognizeNotifyAsync()
+    {
         Drawing.Bitmap? full = null, crop = null;
         try
         {
@@ -126,7 +156,6 @@ public partial class MainWindow : Window
         {
             crop?.Dispose();
             full?.Dispose();
-            if (wasVisible) ShowFromTray();
         }
     }
 

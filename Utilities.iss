@@ -1,6 +1,6 @@
 #define MyAppName "Utilities"
 #define MyAppDisplayName "Утилиты"
-#define MyAppVersion "1.1.1"
+#define MyAppVersion "1.1.2"
 #define MyAppPublisher "andrey1b"
 #define MyAppURL "https://github.com/andrey1b/Utilities"
 #define MyAppExeName "Utilities.exe"
@@ -41,10 +41,15 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 ; чтобы не срабатывала эвристика «упаковщика» антивирусов).
 Source: "{#MyAppSourceDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "app.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "snapshot.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppDisplayName}";        Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\app.ico"
 Name: "{autodesktop}\{#MyAppDisplayName}";  Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\app.ico"; Tasks: desktopicon
+
+; Отдельный ярлык второй утилиты «Снимок → текст» (запускает захват напрямую через --snapshot)
+Name: "{group}\Снимок → текст";       Filename: "{app}\{#MyAppExeName}"; Parameters: "--snapshot"; WorkingDir: "{app}"; IconFilename: "{app}\snapshot.ico"
+Name: "{autodesktop}\Снимок → текст"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--snapshot"; WorkingDir: "{app}"; IconFilename: "{app}\snapshot.ico"
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; \
