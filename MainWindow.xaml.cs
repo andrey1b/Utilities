@@ -79,6 +79,66 @@ public partial class MainWindow : Window
         LayoutStateText.Foreground = on ? OnBrush : OffBrush;
     }
 
+    // ── Плитка «Снимок → текст» (OCR) ────────────────────────────────────────
+
+    private async void RunOcr(object sender, RoutedEventArgs e)
+    {
+        if (!OcrService.IsAvailable)
+        {
+            System.Windows.MessageBox.Show(App.Res("OcrUnavailable"), App.Res("AppTitle"),
+                MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
+
+        bool wasVisible = IsVisible;
+        Hide();                       // убрать своё окно из снимка
+        await Task.Delay(180);
+
+        Drawing.Bitmap? full = null, crop = null;
+        try
+        {
+            full = ScreenCapture.CaptureVirtualScreen();
+            var overlay = new CaptureOverlay(full, App.Res("OcrHint"));
+            bool? picked = overlay.ShowDialog();
+            crop = overlay.Result;
+
+            if (picked == true && crop is not null)
+            {
+                string text = await OcrService.RecognizeAsync(crop, Settings.Current.OcrLanguage);
+                if (!string.IsNullOrWhiteSpace(text))
+                {
+                    SetClipboard(text);
+                    _tray?.ShowBalloonTip(2500, App.Res("AppTitle"),
+                        string.Format(App.Res("OcrDone"), text.Length), Forms.ToolTipIcon.Info);
+                }
+                else
+                {
+                    _tray?.ShowBalloonTip(2500, App.Res("AppTitle"),
+                        App.Res("OcrEmpty"), Forms.ToolTipIcon.Warning);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            _tray?.ShowBalloonTip(2500, App.Res("AppTitle"), ex.Message, Forms.ToolTipIcon.Error);
+        }
+        finally
+        {
+            crop?.Dispose();
+            full?.Dispose();
+            if (wasVisible) ShowFromTray();
+        }
+    }
+
+    private static void SetClipboard(string text)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            try { System.Windows.Clipboard.SetText(text); return; }
+            catch { System.Threading.Thread.Sleep(20); }
+        }
+    }
+
     // ── Настройки ──────────────────────────────────────────────────────────────
 
     private void OpenSettings(object sender, RoutedEventArgs e)

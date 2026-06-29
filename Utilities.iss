@@ -1,10 +1,10 @@
 #define MyAppName "Utilities"
 #define MyAppDisplayName "Утилиты"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.1.0"
 #define MyAppPublisher "andrey1b"
 #define MyAppURL "https://github.com/andrey1b/Utilities"
 #define MyAppExeName "Utilities.exe"
-#define MyAppSourceDir "bin\Release\net9.0-windows\win-x64\publish"
+#define MyAppSourceDir "bin\Release\net9.0-windows10.0.19041.0\win-x64\publish"
 
 [Setup]
 AppId={{F1E2D3C4-B5A6-4978-8A1B-2C3D4E5F6071}

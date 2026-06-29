@@ -131,6 +131,24 @@
                     </StackPanel>
                 </Button>
 
+                <!-- Снимок → текст (OCR) -->
+                <Button Style="{StaticResource TileStyle}" Background="#00838F"
+                        Click="RunOcr"
+                        ToolTip="{DynamicResource TileOcrTip}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="📷" FontSize="44" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource TileOcr}"
+                                   FontSize="17" FontWeight="Bold"
+                                   Foreground="White" HorizontalAlignment="Center"
+                                   Margin="0,8,0,0"/>
+                        <TextBlock Text="{DynamicResource TileOcrSub}"
+                                   FontSize="11" Foreground="#B2DFDB"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,3,0,0" TextWrapping="Wrap"
+                                   TextAlignment="Center" MaxWidth="168"/>
+                    </StackPanel>
+                </Button>
+
             </WrapPanel>
         </ScrollViewer>
 

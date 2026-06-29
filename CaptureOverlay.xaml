@@ -1,0 +1,21 @@
+<Window x:Class="SeniorUtilities.CaptureOverlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
+        Topmost="True" Cursor="Cross" Background="Black"
+        WindowStartupLocation="Manual">
+    <Grid>
+        <Image x:Name="Shot" Stretch="Fill"/>
+        <Canvas x:Name="Board" Background="Transparent">
+            <Path x:Name="Dim" Fill="#66000000"/>
+            <Rectangle x:Name="SelRect" Stroke="#FF4CAF50" StrokeThickness="2"
+                       Visibility="Collapsed"/>
+        </Canvas>
+        <Border VerticalAlignment="Top" HorizontalAlignment="Center"
+                Background="#CC2C5F2D" CornerRadius="0,0,8,8" Padding="18,8"
+                IsHitTestVisible="False">
+            <TextBlock x:Name="Hint" Foreground="White"
+                       FontFamily="Segoe UI" FontSize="14"/>
+        </Border>
+    </Grid>
+</Window>

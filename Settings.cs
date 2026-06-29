@@ -17,6 +17,9 @@ public sealed class Settings
     /// <summary>Включена ли утилита исправления раскладки (горячая клавиша).</summary>
     public bool LayoutFixEnabled { get; set; } = true;
 
+    /// <summary>Язык распознавания текста (OCR): "auto" | "ru" | "en".</summary>
+    public string OcrLanguage { get; set; } = "auto";
+
     // ── хранение ─────────────────────────────────────────────────────────────
 
     public static Settings Current { get; private set; } = new();

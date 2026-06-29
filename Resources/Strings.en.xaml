@@ -14,6 +14,17 @@
     <sys:String x:Key="StateOff">Off</sys:String>
     <sys:String x:Key="LayoutHotkey">Hotkey: Pause / Break</sys:String>
 
+    <!-- Tile: screenshot → text (OCR) -->
+    <sys:String x:Key="TileOcr">Screenshot</sys:String>
+    <sys:String x:Key="TileOcrSub">Recognize on-screen text to the clipboard</sys:String>
+    <sys:String x:Key="TileOcrTip">Select a screen area with text — it will be recognized and copied to the clipboard</sys:String>
+    <sys:String x:Key="OcrHint">Drag to select an area with text · Esc to cancel</sys:String>
+    <sys:String x:Key="OcrDone">Text recognized and copied ({0} chars)</sys:String>
+    <sys:String x:Key="OcrEmpty">No text recognized. Try a larger or clearer area.</sys:String>
+    <sys:String x:Key="OcrUnavailable">Text recognition is unavailable: the Windows OCR language component is not installed.</sys:String>
+    <sys:String x:Key="OcrLangLabel">Text recognition language</sys:String>
+    <sys:String x:Key="OcrLangAuto">Auto</sys:String>
+
     <!-- Footer -->
     <sys:String x:Key="VersionLabel">Version</sys:String>
     <sys:String x:Key="FooterInfo">Select text and press Pause/Break</sys:String>

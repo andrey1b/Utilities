@@ -14,6 +14,17 @@
     <sys:String x:Key="StateOff">Выключено</sys:String>
     <sys:String x:Key="LayoutHotkey">Горячая клавиша: Pause / Break</sys:String>
 
+    <!-- Плитка: снимок → текст (OCR) -->
+    <sys:String x:Key="TileOcr">Снимок</sys:String>
+    <sys:String x:Key="TileOcrSub">Распознать текст на экране в буфер обмена</sys:String>
+    <sys:String x:Key="TileOcrTip">Выделите область экрана с текстом — он будет распознан и скопирован в буфер обмена</sys:String>
+    <sys:String x:Key="OcrHint">Выделите область с текстом мышью · Esc — отмена</sys:String>
+    <sys:String x:Key="OcrDone">Текст распознан и скопирован ({0} симв.)</sys:String>
+    <sys:String x:Key="OcrEmpty">Текст не распознан. Попробуйте выделить область крупнее или чётче.</sys:String>
+    <sys:String x:Key="OcrUnavailable">Распознавание текста недоступно: в Windows не установлен языковой компонент OCR.</sys:String>
+    <sys:String x:Key="OcrLangLabel">Язык распознавания текста</sys:String>
+    <sys:String x:Key="OcrLangAuto">Авто</sys:String>
+
     <!-- Подвал -->
     <sys:String x:Key="VersionLabel">Версия</sys:String>
     <sys:String x:Key="FooterInfo">Выделите текст и нажмите Pause/Break</sys:String>
