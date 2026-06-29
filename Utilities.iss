@@ -1,6 +1,6 @@
 #define MyAppName "Utilities"
 #define MyAppDisplayName "Утилиты"
-#define MyAppVersion "1.1.0"
+#define MyAppVersion "1.1.1"
 #define MyAppPublisher "andrey1b"
 #define MyAppURL "https://github.com/andrey1b/Utilities"
 #define MyAppExeName "Utilities.exe"
@@ -37,7 +37,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
 
 [Files]
-Source: "{#MyAppSourceDir}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+; Многофайловая self-contained сборка — все файлы из publish (без single-file,
+; чтобы не срабатывала эвристика «упаковщика» антивирусов).
+Source: "{#MyAppSourceDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "app.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
