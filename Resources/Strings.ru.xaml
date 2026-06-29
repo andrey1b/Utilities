@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- Шапка -->
+    <sys:String x:Key="AppTitle">Утилиты</sys:String>
+    <sys:String x:Key="AppSubtitle">Маленькие помощники для повседневной работы</sys:String>
+
+    <!-- Плитка: исправление раскладки -->
+    <sys:String x:Key="TileLayout">Раскладка</sys:String>
+    <sys:String x:Key="TileLayoutSub">Исправить набранный не в той раскладке текст</sys:String>
+    <sys:String x:Key="TileLayoutTip">Выделите текст и нажмите Pause/Break — раскладка исправится (Цштвщцы → Windows)</sys:String>
+    <sys:String x:Key="StateOn">Включено</sys:String>
+    <sys:String x:Key="StateOff">Выключено</sys:String>
+    <sys:String x:Key="LayoutHotkey">Горячая клавиша: Pause / Break</sys:String>
+
+    <!-- Подвал -->
+    <sys:String x:Key="VersionLabel">Версия</sys:String>
+    <sys:String x:Key="FooterInfo">Выделите текст и нажмите Pause/Break</sys:String>
+
+    <!-- Трей -->
+    <sys:String x:Key="TrayShow">Открыть окно</sys:String>
+    <sys:String x:Key="TrayExit">Выход</sys:String>
+    <sys:String x:Key="TrayTip">Утилиты — работают в фоне</sys:String>
+    <sys:String x:Key="TrayMinimized">Программа свёрнута в область уведомлений. Горячая клавиша продолжает работать.</sys:String>
+
+    <!-- Настройки -->
+    <sys:String x:Key="SettingsTip">Настройки</sys:String>
+    <sys:String x:Key="SettingsTitle">Настройки</sys:String>
+    <sys:String x:Key="SettingsLangLabel">Язык интерфейса</sys:String>
+    <sys:String x:Key="SettingsApply">Применить</sys:String>
+    <sys:String x:Key="SettingsCancel">Отмена</sys:String>
+    <sys:String x:Key="BehaviorGroupLabel">Поведение</sys:String>
+    <sys:String x:Key="OptAutoStart">Запускать при входе в Windows</sys:String>
+    <sys:String x:Key="OptTray">Сворачивать в трей при закрытии окна</sys:String>
+
+</ResourceDictionary>

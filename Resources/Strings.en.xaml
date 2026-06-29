@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- Header -->
+    <sys:String x:Key="AppTitle">Utilities</sys:String>
+    <sys:String x:Key="AppSubtitle">Small helpers for everyday work</sys:String>
+
+    <!-- Tile: keyboard layout fix -->
+    <sys:String x:Key="TileLayout">Layout</sys:String>
+    <sys:String x:Key="TileLayoutSub">Fix text typed in the wrong keyboard layout</sys:String>
+    <sys:String x:Key="TileLayoutTip">Select text and press Pause/Break — the layout is fixed (Цштвщцы → Windows)</sys:String>
+    <sys:String x:Key="StateOn">On</sys:String>
+    <sys:String x:Key="StateOff">Off</sys:String>
+    <sys:String x:Key="LayoutHotkey">Hotkey: Pause / Break</sys:String>
+
+    <!-- Footer -->
+    <sys:String x:Key="VersionLabel">Version</sys:String>
+    <sys:String x:Key="FooterInfo">Select text and press Pause/Break</sys:String>
+
+    <!-- Tray -->
+    <sys:String x:Key="TrayShow">Open window</sys:String>
+    <sys:String x:Key="TrayExit">Exit</sys:String>
+    <sys:String x:Key="TrayTip">Utilities — running in background</sys:String>
+    <sys:String x:Key="TrayMinimized">The app is minimized to the notification area. The hotkey keeps working.</sys:String>
+
+    <!-- Settings -->
+    <sys:String x:Key="SettingsTip">Settings</sys:String>
+    <sys:String x:Key="SettingsTitle">Settings</sys:String>
+    <sys:String x:Key="SettingsLangLabel">Interface language</sys:String>
+    <sys:String x:Key="SettingsApply">Apply</sys:String>
+    <sys:String x:Key="SettingsCancel">Cancel</sys:String>
+    <sys:String x:Key="BehaviorGroupLabel">Behavior</sys:String>
+    <sys:String x:Key="OptAutoStart">Start with Windows</sys:String>
+    <sys:String x:Key="OptTray">Minimize to tray when window is closed</sys:String>
+
+</ResourceDictionary>
