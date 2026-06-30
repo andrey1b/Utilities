@@ -4,7 +4,6 @@
     <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <UseWPF>true</UseWPF>
-    <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>Utilities</AssemblyName>
     <RootNamespace>SeniorUtilities</RootNamespace>
     <AssemblyTitle>Утилиты</AssemblyTitle>
@@ -19,5 +18,13 @@
 
   <ItemGroup>
     <Resource Include="app.ico" />
+  </ItemGroup>
+
+  <!-- Классы WinForms (NotifyIcon — трей, SystemInformation — снимок экрана для OCR)
+       подключаются через FrameworkReference, без UseWindowsForms — чтобы не тянуть
+       глобальные using WinForms и конфликты типов (Brush/Color/Clipboard и т.п.).
+       Тот же приём, что в TakingMedications. В коде — алиасы Forms/Drawing. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
   </ItemGroup>
 </Project>
