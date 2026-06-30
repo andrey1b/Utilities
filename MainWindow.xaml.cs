@@ -168,6 +168,13 @@ public partial class MainWindow : Window
         }
     }
 
+    // ── Плитка «Включить гибернацию» ─────────────────────────────────────────
+
+    private void OpenHibernation(object sender, RoutedEventArgs e)
+    {
+        new HibernationWindow { Owner = this }.ShowDialog();
+    }
+
     // ── Настройки ──────────────────────────────────────────────────────────────
 
     private void OpenSettings(object sender, RoutedEventArgs e)

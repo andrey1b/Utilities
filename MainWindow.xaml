@@ -149,6 +149,24 @@
                     </StackPanel>
                 </Button>
 
+                <!-- Включить гибернацию -->
+                <Button Style="{StaticResource TileStyle}" Background="#5E35B1"
+                        Click="OpenHibernation"
+                        ToolTip="{DynamicResource TileHibTip}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="💤" FontSize="44" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource TileHib}"
+                                   FontSize="17" FontWeight="Bold"
+                                   Foreground="White" HorizontalAlignment="Center"
+                                   Margin="0,8,0,0"/>
+                        <TextBlock Text="{DynamicResource TileHibSub}"
+                                   FontSize="11" Foreground="#D1C4E9"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,3,0,0" TextWrapping="Wrap"
+                                   TextAlignment="Center" MaxWidth="168"/>
+                    </StackPanel>
+                </Button>
+
             </WrapPanel>
         </ScrollViewer>
 

@@ -25,6 +25,23 @@
     <sys:String x:Key="OcrLangLabel">Text recognition language</sys:String>
     <sys:String x:Key="OcrLangAuto">Auto</sys:String>
 
+    <!-- Tile: hibernation -->
+    <sys:String x:Key="TileHib">Hibernate</sys:String>
+    <sys:String x:Key="TileHibSub">Enable &amp; configure · hibernate now</sys:String>
+    <sys:String x:Key="TileHibTip">Enable hibernation, disable wake sources, and optionally hibernate right away</sys:String>
+
+    <!-- Hibernation window -->
+    <sys:String x:Key="HibTitle">Hibernation</sys:String>
+    <sys:String x:Key="HibIntro">Hibernation saves open programs to disk and fully powers off the PC — everything is restored when you turn it on. The setup also disables wake sources so the PC won't wake on its own.</sys:String>
+    <sys:String x:Key="HibFixBtn">Enable &amp; configure</sys:String>
+    <sys:String x:Key="HibFixHint">Enables hibernation and prevents devices and timers from waking the PC. A window with administrator rights (UAC) and a report will open.</sys:String>
+    <sys:String x:Key="HibNowBtn">Hibernate now</sys:String>
+    <sys:String x:Key="HibNowHint">Put the computer into hibernation immediately.</sys:String>
+    <sys:String x:Key="HibClose">Close</sys:String>
+    <sys:String x:Key="HibNowConfirm">Put the computer into hibernation now?</sys:String>
+    <sys:String x:Key="HibCancelled">Action cancelled.</sys:String>
+    <sys:String x:Key="HibFixStarted">Setup window opened (with administrator rights).</sys:String>
+
     <!-- Footer -->
     <sys:String x:Key="VersionLabel">Version</sys:String>
     <sys:String x:Key="FooterInfo">Select text and press Pause/Break</sys:String>

@@ -1,6 +1,6 @@
 #define MyAppName "Utilities"
 #define MyAppDisplayName "Утилиты"
-#define MyAppVersion "1.1.2"
+#define MyAppVersion "1.1.3"
 #define MyAppPublisher "andrey1b"
 #define MyAppURL "https://github.com/andrey1b/Utilities"
 #define MyAppExeName "Utilities.exe"
