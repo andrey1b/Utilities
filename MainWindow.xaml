@@ -183,13 +183,17 @@
                            FontFamily="Segoe UI" FontSize="11"
                            Foreground="#3A5A3A" HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
-                <Button Style="{StaticResource SettingsBtnStyle}"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Click="OpenSettings"
-                        ToolTip="{DynamicResource SettingsTip}">
-                    <TextBlock Text="⚙" FontSize="15" Foreground="#2C5F2D"/>
-                </Button>
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Style="{StaticResource SettingsBtnStyle}" Margin="0,0,8,0"
+                            Click="OpenAskAi" ToolTip="Спросить у ИИ · Ask AI">
+                        <TextBlock Text="🤖" FontSize="15" Foreground="#2C5F2D"/>
+                    </Button>
+                    <Button Style="{StaticResource SettingsBtnStyle}"
+                            Click="OpenSettings"
+                            ToolTip="{DynamicResource SettingsTip}">
+                        <TextBlock Text="⚙" FontSize="15" Foreground="#2C5F2D"/>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Border>
 

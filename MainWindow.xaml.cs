@@ -177,6 +177,12 @@ public partial class MainWindow : Window
 
     // ── Настройки ──────────────────────────────────────────────────────────────
 
+    private void OpenAskAi(object sender, RoutedEventArgs e)
+    {
+        AskAiWindow.UiLang = App.CurrentLanguage;
+        new AskAiWindow { Owner = this }.Show();
+    }
+
     private void OpenSettings(object sender, RoutedEventArgs e)
     {
         new SettingsWindow { Owner = this }.ShowDialog();
